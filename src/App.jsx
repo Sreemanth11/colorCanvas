@@ -57,7 +57,7 @@ export default function App() {
   };
 
   return (
-    <ClickSpark>
+    <ClickSpark sparkColor="#F5F5FA" sparkRadius={48} sparkSize={16}>
       <div className="app-layout">
         <ColorBends
           colors={["#2C265A", "#12334A", "#352050"]}

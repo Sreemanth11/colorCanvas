@@ -29,17 +29,6 @@ const isInteractiveElement = (target) => {
 };
 
 const getSparkColorForTarget = (target, defaultColor) => {
-  let el = target;
-  while (el && el !== document.body) {
-    if (el.classList.contains('toolbar-btn')) {
-      return defaultColor;
-    }
-    if (el.classList.contains('palette-swatch')) {
-      const style = window.getComputedStyle(el);
-      return style.color || defaultColor;
-    }
-    el = el.parentElement;
-  }
   return defaultColor;
 };
 
