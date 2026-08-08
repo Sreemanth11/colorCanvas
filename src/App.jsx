@@ -4,7 +4,7 @@ import PaletteGenerator from './components/PaletteGenerator';
 import GradientBuilder from './components/GradientBuilder';
 import AccessibilityChecker from './components/AccessibilityChecker';
 import ColorConverter from './components/ColorConverter';
-import { Check } from 'lucide-react';
+import { Check, AlertTriangle } from 'lucide-react';
 import ClickSpark from './components/ClickSpark';
 import ColorBends from './components/ColorBends/ColorBends';
 
@@ -121,12 +121,20 @@ export default function App() {
 
         {/* Global Toast Alerts */}
         <div className="toast-container">
-          {toasts.map((toast) => (
-            <div key={toast.id} className="toast">
-              <Check size={16} />
-              <span>{toast.message}</span>
-            </div>
-          ))}
+          {toasts.map((toast) => {
+            const isWarning = toast.message.toLowerCase().includes('require') || 
+                              toast.message.toLowerCase().includes('unlock') ||
+                              toast.message.toLowerCase().includes('at least');
+            return (
+              <div key={toast.id} className={`toast ${isWarning ? 'toast-warning' : 'toast-success'}`}>
+                <div className="toast-icon-wrapper">
+                  {isWarning ? <AlertTriangle size={20} /> : <Check size={20} />}
+                </div>
+                <span className="toast-title">{isWarning ? 'Warning' : 'Success'}</span>
+                <p className="toast-message">{toast.message}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </ClickSpark>

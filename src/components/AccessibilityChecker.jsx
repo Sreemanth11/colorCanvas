@@ -240,17 +240,18 @@ export default function AccessibilityChecker({ exportTick, saveTick, addToast })
         <div className="wcag-grid">
           {compliance.map((item, index) => (
             <div key={index} className={`wcag-card ${item.pass ? 'pass' : 'fail'}`}>
-              <div className="wcag-card-title">
-                <span className="wcag-card-name">{item.name}</span>
-                <span className="wcag-card-desc">{item.desc}</span>
+              <div className="wcag-status-icon-container">
+                {item.pass ? <CheckCircle2 size={18} /> : <XCircle size={18} />}
+              </div>
+              <div className="wcag-card-content">
+                <div className="wcag-card-header">
+                  <span className="wcag-card-name">{item.name}</span>
+                  <span className="wcag-card-desc-pill">{item.desc}</span>
+                </div>
                 <span className="wcag-card-explanation">{item.explanation}</span>
               </div>
               <span className={`pill-badge ${item.pass ? 'pill-pass' : 'pill-fail'}`}>
-                {item.pass ? (
-                  <><CheckCircle2 size={12} /><span>Pass</span></>
-                ) : (
-                  <><XCircle size={12} /><span>Fail</span></>
-                )}
+                {item.pass ? 'Pass' : 'Fail'}
               </span>
             </div>
           ))}

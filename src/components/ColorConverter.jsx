@@ -99,7 +99,6 @@ export default function ColorConverter({ exportTick, saveTick, addToast }) {
 
   const triggerRandomColor = () => {
     setColor(getRandomColor());
-    addToast("Randomized color!");
   };
 
   const invertColor = () => {

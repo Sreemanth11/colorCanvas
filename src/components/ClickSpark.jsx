@@ -171,9 +171,6 @@ const ClickSpark = ({
   const handleClick = e => {
     if (reducedMotion) return;
 
-    // Check if the click target or its parent is interactive
-    if (!isInteractiveElement(e.target)) return;
-
     const canvas = canvasRef.current;
     if (!canvas) return;
     const rect = canvas.getBoundingClientRect();

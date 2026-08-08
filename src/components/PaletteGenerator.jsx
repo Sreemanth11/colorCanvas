@@ -92,7 +92,6 @@ export default function PaletteGenerator({ generateTick, exportTick, saveTick, a
         isOverridden: false
       } : item))
     );
-    addToast("Regenerated color for this column");
   };
 
   // Adjust HSL slider adjustments
@@ -190,7 +189,6 @@ export default function PaletteGenerator({ generateTick, exportTick, saveTick, a
       labels: getAutoLabels(hex),
       isOverridden: false
     })));
-    addToast("Loaded trending palette!");
   };
 
   return (
@@ -241,8 +239,8 @@ export default function PaletteGenerator({ generateTick, exportTick, saveTick, a
                   className="palette-swatch-toolbar" 
                   onClick={(e) => e.stopPropagation()}
                   style={{ 
-                    color: textColor,
-                    '--toolbar-btn-hover': textColor !== '#FFFFFF' ? 'rgba(0, 0, 0, 0.08)' : 'rgba(255, 255, 255, 0.18)'
+                    color: '#FFFFFF',
+                    '--toolbar-btn-hover': 'rgba(255, 255, 255, 0.18)'
                   }}
                 >
                   <button 

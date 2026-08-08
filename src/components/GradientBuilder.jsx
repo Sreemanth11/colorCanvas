@@ -56,7 +56,6 @@ export default function GradientBuilder({ exportTick, saveTick, addToast }) {
 
       setStops((prev) => [...prev, newStop]);
       setActiveStopId(newStop.id);
-      addToast('Added a new stop. Click it to adjust color.');
     }
   };
 
@@ -94,7 +93,6 @@ export default function GradientBuilder({ exportTick, saveTick, addToast }) {
     if (activeStopId === id) {
       setActiveStopId(newStops[0].id);
     }
-    addToast('Removed stop');
   };
 
   const updateColor = (id, color) => {
@@ -112,7 +110,6 @@ export default function GradientBuilder({ exportTick, saveTick, addToast }) {
         position: 100 - stop.position
       }))
     );
-    addToast('Reversed gradient direction!');
   };
 
   return (
