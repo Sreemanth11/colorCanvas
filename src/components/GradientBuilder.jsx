@@ -136,6 +136,9 @@ export default function GradientBuilder({ exportTick, saveTick, addToast }) {
           <div 
             id="stops-bar" 
             className="gradient-stops-bar"
+            style={{ 
+              background: `linear-gradient(90deg, ${sortedStops.map((s) => `${s.color} ${s.position}%`).join(', ')})` 
+            }}
             onClick={handleBarClick}
           >
             {stops.map((stop) => (
